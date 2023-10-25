@@ -4,7 +4,6 @@ import { Skeleton, Stack } from '@chakra-ui/react';
 import { FaCircleArrowUp, FaCircleArrowDown } from 'react-icons/fa6';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { IoSend } from 'react-icons/io5';
-
 import Button from '../../components/button';
 import Line from '../../components/line';
 import AutoExpandTextArea from '../../components/expandTextArea';
@@ -56,9 +55,9 @@ const Posts = () => {
 
         if (!result) return;
 
-        // Converter os valores de updatedAt em um formato ISO 8601 válido
+        
         result.forEach((post) => {
-          // Suponha que updatedAt seja uma string no formato "yyyy-mm-dd hh:mm:ss"
+          
           const isoDate = post.updatedAt
             .replace(' ', 'T')
             .replace(/ /g, '')
@@ -67,7 +66,7 @@ const Posts = () => {
           post.updatedAt = isoDate;
         });
 
-        // Ordenar os posts com base na data de atualização (do mais recente para o mais antigo)
+    
         result.sort((a, b) => {
           const dateA = DateTime.fromISO(a.updatedAt, { zone: 'utc' });
           const dateB = DateTime.fromISO(b.updatedAt, { zone: 'utc' });
@@ -92,7 +91,7 @@ const Posts = () => {
 
       getUser();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [loading]);
 
   const handleSubmit = async (e) => {
@@ -113,7 +112,7 @@ const Posts = () => {
 
     if (!result) return;
 
-    // Atualize o estado local com os dados atualizados do post
+   
     const updatedPostsData = postsData.map((post) => {
       if (post.id === id) {
         return {
@@ -125,25 +124,25 @@ const Posts = () => {
       return post;
     });
 
-    // Determine a cor atual do botão de upvote
+    
     const currentUpvoteColor = upvoteColors[id];
 
-    // Determine a cor atual do botão de downvote
+   
     const currentDownvoteColor = downvoteColors[id];
 
-    // Atualize o estado local para definir a cor do botão de upvote
+    
     setUpvoteColors((prevUpvoteColors) => ({
       ...prevUpvoteColors,
       [id]: currentUpvoteColor === 'green' ? 'black' : 'green',
     }));
 
-    // Atualize o estado local para definir a cor do botão de downvote
+    
     setDownvoteColors((prevDownvoteColors) => ({
       ...prevDownvoteColors,
       [id]: currentDownvoteColor === 'red' ? 'black' : 'red',
     }));
 
-    // Atualize o estado local com os dados atualizados do post
+    
     setPostsData(updatedPostsData);
   };
 

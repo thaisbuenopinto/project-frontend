@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-
 import Menu from '../components/menu';
 import ProtectedPage from '../components/protectedPage';
 import Home from '../pages/home';
