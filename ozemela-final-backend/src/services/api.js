@@ -52,7 +52,7 @@ export const createSession = async (email, password) => {
 
 export const getLoggedUser = async (token) => {
   const result = await api
-    .get(`/users/data`, {
+    .get(`/users`, {
       headers: {
         Authorization: token,
       },

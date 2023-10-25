@@ -3,27 +3,12 @@ import { DateTime } from 'luxon';
 import { Skeleton, Stack } from '@chakra-ui/react';
 import { FaCircleArrowUp, FaCircleArrowDown } from 'react-icons/fa6';
 import { IoSend } from 'react-icons/io5';
-
 import Button from '../../components/button';
 import Line from '../../components/line';
 import AutoExpandTextArea from '../../components/expandTextArea';
 import { AuthContext } from '../../contexts/authorization';
-import {
-  editPost,
-  getAllCommentsPost,
-  getPosts,
-  insertCommentPost,
-  likeDislikePost,
-} from '../../services/api';
-
-import {
-  Container,
-  EditPostArea,
-  Form,
-  StackStyled,
-  TextareaStyled,
-} from './styled';
-
+import { editPost,  getAllCommentsPost, getPosts, insertCommentPost,  likeDislikePost} from '../../services/api';
+import { Container, EditPostArea, Form, StackStyled, TextareaStyled } from './styled';
 import comment from '../../assets/comentario_icon.png';
 import { useParams } from 'react-router-dom';
 
